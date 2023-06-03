@@ -45,10 +45,10 @@ module "kafka_cluster" {
     "autoscaling_profile": "OPTIMIZE_UTILIZATION",
     "enabled" : true,
     "gpu_resources" : [],
-    "min_cpu_cores" : 36,
-    "min_memory_gb" : 144,
-    "max_cpu_cores" : 70,
-    "max_memory_gb" : 250,
+    "min_cpu_cores" : 15,
+    "min_memory_gb" : 60,
+    "max_cpu_cores" : 30,
+    "max_memory_gb" : 120,
   }
   monitoring_enable_managed_prometheus = true
   gke_backup_agent_config = true
@@ -61,8 +61,7 @@ module "kafka_cluster" {
       autoscaling     = false
       max_surge       = 1
       max_unavailable = 0
-      machine_type    = "e2-standard-4"
-      node_locations  = "us-central1-a,us-central1-b,us-central1-c"
+      machine_type    = "e2-medium"
       auto_repair     = true
     },
     {
@@ -74,8 +73,7 @@ module "kafka_cluster" {
       max_count       = 2
       max_surge       = 1
       max_unavailable = 0
-      machine_type    = "e2-standard-8"
-      node_locations  = "us-central1-a,us-central1-b,us-central1-c"
+      machine_type    = "e2-standard-2"
       auto_repair     = true
     },
     {
@@ -87,8 +85,7 @@ module "kafka_cluster" {
       max_count       = 2
       max_surge       = 1
       max_unavailable = 0
-      machine_type    = "e2-standard-8"
-      node_locations  = "us-central1-a,us-central1-b,us-central1-c"
+      machine_type    = "e2-standard-2"
       auto_repair     = true
     },
   ]
